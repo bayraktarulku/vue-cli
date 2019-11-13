@@ -9,9 +9,10 @@
                     @delete="onDeleteItem"
                     :key="todo.id" />
         </div>
-        <div>
-          <input type="text" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
-          <div class="ToDo-Add" @click="createNewToDoItem()">+</div>
+        <div class="NewToDoItem">
+            <input type="text" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
+            <div class="ToDoItem-Add"@click="createNewToDoItem()">+
+            </div>
         </div>
       </div>
     </div>
@@ -97,19 +98,16 @@ export default {
   }
 
   .ToDo-Add {
-    color: white;
-    font-size: 2em;
-    width: 0.5em;
-    height: 0.5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
+    width: 20px;
+    padding: 5px;
+    height: 20px;
     cursor: pointer;
-    background: #73ff73;
+    background: #329bce;
     border-radius: 10px;
-    box-shadow: 1px 1px 1px #47a947;
-    margin: 20px auto 0;
+    box-shadow: 1px 1px 1px #c70202;
+    color: white;
+    font-size: 18px;
+    margin-right: 5px;
   }
 
   .ToDo-Add:hover {
@@ -122,10 +120,30 @@ export default {
     width: 80%;
     margin: 0 auto;
   }
+  .ToDoItem-Add {
+      width: 20px;
+      padding: 5px;
+      height: 20px;
+      cursor: pointer;
+      background: #1eaaec;
+      border-radius: 10px;
+      box-shadow: 1px 1px 1px #1eaaec;
+      color: white;
+      font-size: 18px;
+      margin-right: 36px;
+  }
+  .NewToDoItem {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+  }
 
   input {
-    width: 60%;
-    padding: 10px;
+    text-align: center;
+    width: 91%;
+    padding: 8px;
+    padding-left: 4px;
     font-size: 1em;
     margin: 10px auto;
     box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.3)
