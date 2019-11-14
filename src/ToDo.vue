@@ -32,13 +32,13 @@ export default {
                 ],
           todo: '',
           active: false,
-          logo: Logo
+          logo: Logo,
+          'message': []
       }
   },
 
   methods: {
       createNewToDoItem() {
-        //validate todo
         if (!this.todo){
           alert("Enter a todo!");
           return
@@ -49,8 +49,30 @@ export default {
       },
       onDeleteItem(todo){
         this.list = this.list.filter(item => item !== todo);
-      }
+        this.getMessageData()
+        console.log('this.list', this.message)
+      },
+      getMessageData(){
+        getDataAsync('https://jsonplaceholder.typicode.com/posts')
+          .then(message => console.log(message));
+        let list = [{id: 3, text: 'project'},
+               {id: 4, text: 'learn'},
+               {id: 5, text: 'xxxx'}
+              ]
+        this.list = list
 
+      }
   },
+  created() {}
+}
+
+async function getDataAsync(url)
+{
+  let response = await fetch(url);
+  let data = await response.json()
+  return data;
 }
 </script>
+
+
+

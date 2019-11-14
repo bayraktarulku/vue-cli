@@ -1,9 +1,7 @@
 <template>
     <div class="ToDoItem">
-        <p class="ToDoItem-Text">{{todo.text}}</p>
-        <div class="ToDoItem-Delete"
-             @click="deleteItem(todo)">-
-        </div>
+        <p class="ToDoItem-Text">{{todo}}</p>
+        <div class="ToDoItem-Delete" @click="deleteItem(todo)">-</div>
     </div>
 </template>
 
