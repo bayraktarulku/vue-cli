@@ -55,12 +55,6 @@ export default {
       getMessageData(){
         getDataAsync('https://jsonplaceholder.typicode.com/posts')
           .then(message => console.log(message));
-        let list = [{id: 3, text: 'project'},
-               {id: 4, text: 'learn'},
-               {id: 5, text: 'xxxx'}
-              ]
-        this.list = list
-
       }
   },
   created() {}
