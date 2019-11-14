@@ -130,13 +130,12 @@ export default {
       box-shadow: 1px 1px 1px #1eaaec;
       color: white;
       font-size: 18px;
-      margin-right: 36px;
+      margin-right: 16px;
   }
   .NewToDoItem {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-left: 10px;
   }
 
   input {
