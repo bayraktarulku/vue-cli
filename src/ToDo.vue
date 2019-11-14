@@ -33,7 +33,7 @@ export default {
           todo: '',
           active: false,
           logo: Logo,
-          'message': []
+          message: []
       }
   },
 
@@ -50,11 +50,13 @@ export default {
       onDeleteItem(todo){
         this.list = this.list.filter(item => item !== todo);
         this.getMessageData()
-        console.log('this.list', this.message)
+      },
+      getMessageDatacallback(resp) {
+        this.message= resp
       },
       getMessageData(){
         getDataAsync('https://jsonplaceholder.typicode.com/posts')
-          .then(message => console.log(message));
+        .then(this.getMessageDatacallback);
       }
   },
   created() {}
