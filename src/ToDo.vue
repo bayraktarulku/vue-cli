@@ -54,8 +54,15 @@ export default {
         this.todo = '';
       },
       onDeleteItem(todo){
+        fetch('http://localhost:3000/todoItems/' + todo.id, {
+          method: 'DELETE',
+          headers: {'content-type': 'application/json'},
+        })
         this.list = this.list.filter(item => item !== todo);
-        this.getMessageData()
+        // .then(res => res.text()) // OR res.json()
+        // .then(res => console.log(res))
+
+        // this.getMessageData()
       },
       getMessageDatacallback(resp) {
         console.log('dsada')
