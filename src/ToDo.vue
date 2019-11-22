@@ -59,13 +59,8 @@ export default {
           headers: {'content-type': 'application/json'},
         })
         this.list = this.list.filter(item => item !== todo);
-        // .then(res => res.text()) // OR res.json()
-        // .then(res => console.log(res))
-
-        // this.getMessageData()
       },
       getMessageDatacallback(resp) {
-        console.log('dsada')
         this.message= resp
         this.list= resp
       },

@@ -15,6 +15,16 @@ npm install -g @vue/cli
 ```
 cd vue-cli
 npm install
+npm install -g json-server
+```
+
+### Starting DB Server
+```
+json-server --watch db.json
+```
+
+### Starting Web Server
+```
 npm run serve
 ```
 
