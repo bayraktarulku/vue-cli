@@ -4,7 +4,7 @@
       <h1 class="ToDo-Header">Vue ToDo</h1>
       <div class="ToDo-Container">
         <div class="ToDo-Content">
-          <ToDoItem v-for="todo in list" :todo="todo" @delete="onDeleteItem" :key="todo.id" />
+          <ToDoItem v-for="todo in list" :todo="todo" @delete="onDeleteItem" @update="onUpdateItem" :key="todo.id" />
         </div>
         <div class="NewToDoItem">
           <input type="text" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
@@ -28,7 +28,7 @@ export default {
   data() {
       return {
           list: [],
-          todo: '',
+          todo: 'Add New To-Do',
           active: false,
           logo: Logo,
           message: []
@@ -45,20 +45,22 @@ export default {
         fetch('http://localhost:3000/todoItems', {
           method: 'post',
           headers: {
-            'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ id: newId, text: this.todo})
         }).then(res=>res.json())
-          .then(res => console.log(res));
         this.todo = '';
       },
       onDeleteItem(todo){
+        console.log('Delete', todo)
         fetch('http://localhost:3000/todoItems/' + todo.id, {
           method: 'DELETE',
           headers: {'content-type': 'application/json'},
         })
         this.list = this.list.filter(item => item !== todo);
+      },
+      onUpdateItem(todo) {
+        console.log('Update', todo)
       },
       getMessageDatacallback(resp) {
         this.message= resp
@@ -73,7 +75,7 @@ export default {
     this.getMessageData()
   }
 }
-
+// Get Data
 async function getDataAsync(url)
 {
   let response = await fetch(url);

@@ -62,7 +62,7 @@ margin: 0 auto;
   box-shadow: 1px 1px 1px #1eaaec;
   color: white;
   font-size: 18px;
-  margin-right: 16px;
+  margin-right: 46px;
 }
 .NewToDoItem {
   display: flex;
@@ -95,15 +95,28 @@ box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.3)
   margin-right: 10px;
 }
 
+.ToDoItem-Update {
+  width: 20px;
+  padding: 5px;
+  height: 20px;
+  cursor: pointer;
+  background: #1eaaec;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #48b8ec;
+  color: white;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
 .ToDoItem-Delete {
   width: 20px;
   padding: 5px;
   height: 20px;
   cursor: pointer;
-  background: #ff7373;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px #c70202;
   color: white;
+  background: #ff7373;
+  box-shadow: 1px 1px 1px #c70202;
   font-size: 18px;
   margin-right: 5px;
 }
