@@ -27,16 +27,13 @@ export default {
   },
   data() {
       return {
-          list: [{id: 1, text: 'Created vue.js project'},
-                 {id: 2, text: 'Build to learn'}
-                ],
+          list: [],
           todo: '',
           active: false,
           logo: Logo,
           message: []
       }
   },
-
   methods: {
       createNewToDoItem() {
         if (!this.todo){
@@ -45,6 +42,15 @@ export default {
         }
         const newId = Math.max.apply(null, this.list.map(t => t.id)) + 1;
         this.list.push({ id: newId, text: this.todo});
+        fetch('http://localhost:3000/todoItems', {
+          method: 'post',
+          headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: newId, text: this.todo})
+        }).then(res=>res.json())
+          .then(res => console.log(res));
         this.todo = '';
       },
       onDeleteItem(todo){
@@ -52,14 +58,18 @@ export default {
         this.getMessageData()
       },
       getMessageDatacallback(resp) {
+        console.log('dsada')
         this.message= resp
+        this.list= resp
       },
       getMessageData(){
-        getDataAsync('https://jsonplaceholder.typicode.com/posts')
+        getDataAsync('http://localhost:3000/todoItems')
         .then(this.getMessageDatacallback);
-      }
+      },
   },
-  created() {}
+  created() {
+    this.getMessageData()
+  }
 }
 
 async function getDataAsync(url)

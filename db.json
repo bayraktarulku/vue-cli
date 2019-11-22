@@ -1,0 +1,35 @@
+{
+  "todoItems": [
+    {
+      "id": 1,
+      "text": "Created vue.js project"
+    },
+    {
+      "id": 2,
+      "text": "File hierarchy created."
+    },
+    {
+      "id": 3,
+      "text": "Used modules are imported"
+    },
+    {
+      "id": 4,
+      "text": "used module"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "jsonplaceholder"
+  }
+}
