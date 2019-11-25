@@ -7,7 +7,7 @@
           <ToDoItem v-for="todo in list" :todo="todo" @delete="onDeleteItem" @update="onUpdateItem" :key="todo.id" />
         </div>
         <div class="NewToDoItem">
-          <input type="text" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
+          <input type="text" placeholder="Add New To-Do" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
           <div class="ToDoItem-Add" @click="createNewToDoItem()">+</div>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default {
   data() {
       return {
           list: [],
-          todo: 'Add New To-Do',
+          todo: '',
           active: false,
           logo: Logo,
           message: []
