@@ -29,6 +29,7 @@ export default {
       return {
           list: [],
           todo: '',
+          showModal: false,
           active: false,
           logo: Logo,
           message: []
@@ -60,6 +61,7 @@ export default {
         this.list = this.list.filter(item => item !== todo);
       },
       onUpdateItem(todo) {
+        this.showModal = true
         console.log('Update', todo)
       },
       getMessageDatacallback(resp) {

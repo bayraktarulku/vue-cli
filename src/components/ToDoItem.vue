@@ -2,7 +2,7 @@
     <div class="ToDoItem">
         <p class="ToDoItem-Text">{{ todo.text }}</p>
         <div class="ToDoItem-Delete" @click="deleteItem(todo)">-</div>
-        <div class="ToDoItem-Update" @click="updateItem(todo)">*</div>
+        <div class="ToDoItem-Update" data-toggle="modal" data-target="#modal-data-model" @click="updateItem(todo)">*</div>
     </div>
 </template>
 
