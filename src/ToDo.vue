@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <div class="ToDo">
+    <div v-if="selected == 'ToDoContainer'" class="ToDo">
+      <button @click="selected='TrashContainer';">Back</button>
       <h1 class="ToDo-Header">Vue ToDo</h1>
       <div class="ToDo-Container">
         <div class="ToDo-Content">
@@ -11,6 +12,10 @@
           <div class="ToDoItem-Add" @click="createNewToDoItem()">+</div>
         </div>
       </div>
+    </div>
+    <div v-else-if="selected == 'TrashContainer'" class="Trash">
+      <button @click="selected='ToDoContainer';">ToDo</button>
+       <h1 class="ToDo-Header">Vue Trash</h1>
     </div>
   </div>
 </template>
@@ -30,7 +35,8 @@ export default {
           todo: '',
           showModal: false,
           active: false,
-          message: []
+          message: [],
+          selected: 'ToDoContainer',
       }
   },
   methods: {
@@ -81,6 +87,3 @@ async function getDataAsync(url)
   return data;
 }
 </script>
-
-
-

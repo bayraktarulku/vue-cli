@@ -10,7 +10,7 @@ justify-content: center;
 align-items: center;
 }
 
-.ToDo {
+.ToDo, .Trash {
 text-align: center;
 border: 1px solid white;
 width: 80vw;
