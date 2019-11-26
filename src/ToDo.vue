@@ -17,7 +17,6 @@
 
 <script>
 import ToDoItem from './components/ToDoItem.vue'
-import Logo from './static/images/logo.png';
 import './static/css/style.css';
 
 export default {
@@ -31,7 +30,6 @@ export default {
           todo: '',
           showModal: false,
           active: false,
-          logo: Logo,
           message: []
       }
   },
@@ -53,7 +51,6 @@ export default {
         this.todo = '';
       },
       onDeleteItem(todo){
-        console.log('Delete', todo)
         fetch('http://localhost:3000/todoItems/' + todo.id, {
           method: 'DELETE',
           headers: {'content-type': 'application/json'},
@@ -62,7 +59,6 @@ export default {
       },
       onUpdateItem(todo) {
         this.showModal = true
-        console.log('Update', todo)
       },
       getMessageDatacallback(resp) {
         this.message= resp
