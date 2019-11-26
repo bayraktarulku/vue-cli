@@ -78,7 +78,8 @@ export default {
         .then(this.getMessageDatacallback);
       },
       calculateOnclick() {
-        console.log('Calculate', this.number)
+        let randomNumber = parseInt(Math.random() * 10)
+        console.log('Calculate', this.number, randomNumber)
       }
   },
   created() {
