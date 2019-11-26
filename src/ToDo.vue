@@ -19,6 +19,7 @@
        <div class="NumberItem">
          <input type="text" placeholder="Add Number" v-model="number"/>
        </div>
+       <button class="NumberButton" @click="calculateOnclick()">Calculate</button>
     </div>
   </div>
 </template>
@@ -74,10 +75,13 @@ export default {
         this.message= resp
         this.list= resp
       },
-      getMessageData(){
+      getMessageData() {
         getDataAsync('http://localhost:3000/todoItems')
         .then(this.getMessageDatacallback);
       },
+      calculateOnclick() {
+        console.log('Calculate', this.number)
+      }
   },
   created() {
     this.getMessageData()
