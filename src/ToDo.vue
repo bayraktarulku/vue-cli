@@ -16,9 +16,7 @@
     <div v-else-if="selected == 'TrashContainer'" class="Trash">
       <button @click="selected='ToDoContainer';">ToDo</button>
        <h1 class="ToDo-Header">Vue Trash</h1>
-       <div class="NumberItem">
-         <input type="text" placeholder="Add Number" v-model="number"/>
-       </div>
+        <input type="text" placeholder="Add Number" v-model="number"/>
        <button class="NumberButton" @click="calculateOnclick()">Calculate</button>
     </div>
   </div>
