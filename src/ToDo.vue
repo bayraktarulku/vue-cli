@@ -5,7 +5,7 @@
       <h1 class="ToDo-Header">Vue ToDo</h1>
       <div class="ToDo-Container">
         <div class="ToDo-Content">
-          <ToDoItem v-for="todo in list" :todo="todo" @delete="onDeleteItem" @update="onUpdateItem" :key="todo.id" />
+          <ToDoItem v-for="todo in list" :todo="todo" @delete="onDeleteItem" @update="onUpdateItem(todo)" :key="todo.id" />
         </div>
         <div class="NewToDoItem">
           <input type="text" placeholder="Add New To-Do" v-model="todo" v-on:keyup.enter="createNewToDoItem"/>
@@ -18,6 +18,12 @@
        <h1 class="ToDo-Header">Vue Trash</h1>
         <input type="text" placeholder="Add Number" v-model="number"/>
        <button class="NumberButton" @click="calculateOnclick()">Calculate</button>
+    </div>
+    <div v-else class="List">
+      <button @click="selected='ToDoContainer';">ToDo</button>
+      <button @click="selected='TrashContainer';">Trash</button>
+       <h1 class="ToDo-Header">Vue List</h1>
+       <button class="NumberButton">XXXX</button>
     </div>
   </div>
 </template>
@@ -67,6 +73,7 @@ export default {
         this.list = this.list.filter(item => item !== todo);
       },
       onUpdateItem(todo) {
+        console.log(todo)
         this.showModal = true
       },
       getMessageDatacallback(resp) {
